@@ -25,8 +25,10 @@ class StateWiseAdapter(private val list:List<StatewiseItem>):BaseAdapter() {
                 list[position].confirmed?.length?:0
             )
 
+            val deltaActive = Integer.valueOf(list[position].deltaconfirmed.toString())-Integer.valueOf(list[position].deltarecovered.toString())-Integer.valueOf(list[position].deltadeaths.toString())
+
             tvActiveState.text = SpannableData(
-                "${list[position].active}\n ↑${list[position].deltaactive?:0}",
+                    if(deltaActive>=0) "${list[position].active}\n ↑${deltaActive}" else "${list[position].active}\n ↓${-deltaActive}",
                 "#1976D2",
                 list[position].active?.length?:0
             )
