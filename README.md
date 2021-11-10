@@ -8,4 +8,4 @@ An app that fetches and displays the current stats of Covid cases for all states
 - Ok Http
 - Gson
 - Kotlin Coroutines
-- [Api used](https://api.covid19india.org/data.json)
+- [Api used](https://data.covid19india.org/v4/min/data.min.json)
