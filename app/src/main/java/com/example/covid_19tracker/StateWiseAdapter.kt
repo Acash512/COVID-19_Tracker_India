@@ -6,7 +6,7 @@ import android.view.ViewGroup
 import android.widget.BaseAdapter
 import kotlinx.android.synthetic.main.list_item.view.*
 
-class StateWiseAdapter(private val list:List<StatewiseItem>):BaseAdapter() {
+class StateWiseAdapter(private val list:List<StateInfo>):BaseAdapter() {
 
     override fun getCount(): Int = list.size
 
@@ -17,32 +17,30 @@ class StateWiseAdapter(private val list:List<StatewiseItem>):BaseAdapter() {
     override fun getView(position: Int, convertView: View?, parent: ViewGroup?): View {
         val itemView = convertView?:LayoutInflater.from(parent?.context).inflate(R.layout.list_item,parent,false)
         itemView.apply{
-            tvState.text = list[position].state
+            tvState.text = list[position].nameOfState
 
             tvConfirmedState.text = SpannableData(
-                "${list[position].confirmed}\n ↑${list[position].deltaconfirmed}",
+                "${list[position].total?.confirmed ?: 0}\n ↑${list[position].delta7?.confirmed ?: 0}",
                  "#D32F2F",
-                list[position].confirmed?.length?:0
+                list[position].total?.confirmed?.length?:1
             )
 
-            val deltaActive = Integer.valueOf(list[position].deltaconfirmed.toString())-Integer.valueOf(list[position].deltarecovered.toString())-Integer.valueOf(list[position].deltadeaths.toString())
-
-            tvActiveState.text = SpannableData(
-                    if(deltaActive>=0) "${list[position].active}\n ↑${deltaActive}" else "${list[position].active}\n ↓${-deltaActive}",
+            tvVaccinatedState.text = SpannableData(
+                "${list[position].total?.vaccinated2 ?: 0}\n ↑${list[position].delta7?.vaccinated2 ?: 0}",
                 "#1976D2",
-                list[position].active?.length?:0
+                list[position].total?.vaccinated2?.length ?: 1
             )
 
             tvRecoveredState.text = SpannableData(
-                "${list[position].recovered}\n ↑${list[position].deltarecovered}",
+                "${list[position].total?.recovered ?: 0}\n ↑${list[position].delta7?.recovered ?: 0}",
                 "#388E3C",
-                list[position].recovered?.length?:0
+                list[position].total?.recovered?.length ?: 1
             )
 
             tvDeceasedState.text = SpannableData(
-                "${list[position].deaths}\n ↑${list[position].deltadeaths}",
+                "${list[position].total?.deceased ?: 0}\n ↑${list[position].delta7?.deceased ?: 0}",
                 "#FBC02D",
-                list[position].deaths?.length?:0
+                list[position].total?.deceased?.length ?: 1
             )
         }
         return itemView

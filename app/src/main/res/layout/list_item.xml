@@ -15,7 +15,7 @@
             android:id="@+id/tvState"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="2"
+            android:layout_weight="1.5"
             android:text="Total"
             android:textAllCaps="true"
             android:textColor="@android:color/black"
@@ -33,7 +33,7 @@
             android:textSize="12sp" />
 
         <TextView
-            android:id="@+id/tvActiveState"
+            android:id="@+id/tvVaccinatedState"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"

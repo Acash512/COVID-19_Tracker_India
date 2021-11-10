@@ -1,3 +1,15 @@
 <resources>
     <string name="app_name">COVID-19 Tracker</string>
+    <string name="last_updated_time">Last Updated %s</string>
+    <string name="last_updated">Last updated</string>
+    <string name="confirmed">confirmed</string>
+    <string name="_0">0</string>
+    <string name="vaccinated">vaccinated</string>
+    <string name="recovered">recovered</string>
+    <string name="deceased">deceased</string>
+    <string name="state_ut">state/ut</string>
+    <string name="cnfrmd">cnfrmd</string>
+    <string name="vacc">vacc</string>
+    <string name="rcvd">rcvd</string>
+    <string name="dcsd">dcsd</string>
 </resources>

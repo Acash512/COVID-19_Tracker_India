@@ -4,10 +4,10 @@ import okhttp3.OkHttpClient
 import okhttp3.Request
 
 object Client {
-    val okHttpClient = OkHttpClient()
+    private val okHttpClient = OkHttpClient()
 
-    val request = Request.Builder()
-            .url("https://api.covid19india.org/data.json")
+    private val request = Request.Builder()
+            .url("https://data.covid19india.org/v4/min/data.min.json")
             .build()
 
     val api = okHttpClient.newCall(request)
